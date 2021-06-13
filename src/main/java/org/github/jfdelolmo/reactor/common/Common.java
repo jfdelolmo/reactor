@@ -25,12 +25,16 @@ public class Common {
         return FAKER;
     }
 
-    public static void sleepSeconds(int seconds) {
+    public static void sleepMillis(int millis) {
         try {
-            Thread.sleep(1000*seconds);
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void sleepSeconds(int seconds) {
+        sleepMillis(seconds*1000);;
     }
 
     public static Subscriber<Object> subscriber(){
@@ -40,4 +44,6 @@ public class Common {
     public static Subscriber<Object> subscriber(String name){
         return new DefaultSubscriber(name);
     }
+
+
 }
